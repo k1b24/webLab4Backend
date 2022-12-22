@@ -20,8 +20,6 @@ public class RegisterService {
     }
 
     public boolean registerNewUser(UserDetails userDetails) {
-        System.out.println(userDetails.getUsername());
-        System.out.println(userDetails.getPassword());
         if (userRepo.existsByUsername(userDetails.getUsername())) return false;
         ApplicationUser newUser = new ApplicationUser();
         newUser.setUsername(userDetails.getUsername());

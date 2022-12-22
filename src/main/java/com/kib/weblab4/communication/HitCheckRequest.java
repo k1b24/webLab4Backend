@@ -13,7 +13,7 @@ public class HitCheckRequest {
     @NotNull
     @Min(value = -3, message = "Min value for X is -3")
     @Max(value = 5, message = "Max value for X is 5")
-    private Integer x;
+    private Float x;
     @NotNull
     @Min(value = -5, message = "Min value for Y is -5")
     @Max(value = 5, message = "Max value for Y is 5")

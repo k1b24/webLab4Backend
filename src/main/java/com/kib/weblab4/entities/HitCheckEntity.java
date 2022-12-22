@@ -14,7 +14,7 @@ public class HitCheckEntity {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    private Integer x;
+    private Float x;
 
     private Float y;
 
@@ -23,4 +23,6 @@ public class HitCheckEntity {
     private Instant hitCheckDate;
 
     private boolean hitCheckResult;
+
+    private Integer userId;
 }

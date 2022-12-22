@@ -3,6 +3,7 @@ package com.kib.weblab4.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kib.weblab4.communication.ErrorMessage;
+import com.kib.weblab4.exceptions.PermissionIsMissingException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -30,6 +31,11 @@ public class BaseController {
             }
             bw.write(mapper.writeValueAsString(new ErrorMessage(sb.toString())));
         }
+    }
+
+    @ExceptionHandler(PermissionIsMissingException.class)
+    void handlePermissionIsMissingException(HttpServletResponse response, PermissionIsMissingException exception) throws IOException {
+        response.setStatus(HttpStatus.FORBIDDEN.value());
     }
 
 

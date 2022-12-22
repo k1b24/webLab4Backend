@@ -4,27 +4,23 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-@Entity(name="authorities")
+@Entity
 @Data
-public class UserAuthority {
-
+public class Permission {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
+    private String name;
 
     @ManyToOne
     @JoinColumn(name="username", referencedColumnName = "username")
     private ApplicationUser user;
 
-    private String authority;
+    public Permission() {}
 
-    public UserAuthority() {
-
-    }
-
-    public UserAuthority(ApplicationUser applicationUser, String authority) {
+    public Permission(ApplicationUser applicationUser, String permissionName) {
+        this.name = permissionName;
         this.user = applicationUser;
-        this.authority = authority;
     }
 }

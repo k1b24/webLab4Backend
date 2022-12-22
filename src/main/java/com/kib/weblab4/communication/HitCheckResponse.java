@@ -8,7 +8,7 @@ import java.time.Instant;
 @Data
 public class HitCheckResponse {
 
-    private Integer x;
+    private Float x;
     private Float y;
     private Integer r;
     @JsonProperty("hit_check_date")

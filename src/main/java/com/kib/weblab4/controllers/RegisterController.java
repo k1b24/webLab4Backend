@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.validation.Valid;
+
 @Controller
-public class RegisterController {
+public class RegisterController extends BaseController {
 
     private final RegisterService registerService;
 
@@ -20,7 +22,7 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody UserDetails userDetails) {
+    public ResponseEntity<?> register(@RequestBody @Valid UserDetails userDetails) {
         boolean result = registerService.registerNewUser(userDetails);
         //TODO вместо булиан бросать эксепшн и обрабатывать его
         if (result) {
