@@ -24,7 +24,6 @@ public class RegisterController extends BaseController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody @Valid UserDetails userDetails) {
         boolean result = registerService.registerNewUser(userDetails);
-        //TODO вместо булиан бросать эксепшн и обрабатывать его
         if (result) {
             return ResponseEntity.ok().build();
         }
